@@ -1,0 +1,210 @@
+========================================
+  Numerics Unit - Comprehensive Test Suite
+========================================
+
+========================================
+Testing: TFloat
+========================================
+A = 5.5  B = 2
+A + B = 7.5
+A - B = 3.5
+A * B = 11
+A / B = 2.75
+-A = -5.5
+1/A = 0.181818181818182
+Clone(A) = 5.5
+A + B (operator) = 7.5
+A - B (operator) = 3.5
+A * B (operator) = 11
+A / B (operator) = 2.75
+-A (operator) = -5.5
+PASS: All TFloat tests passed!
+
+========================================
+Testing: TInteger
+========================================
+A = 10  B = 3
+A + B = 13
+A - B = 7
+A * B = 30
+A / B = 3
+-A = -10
+1/A = 0.100000001490116
+Clone(A) = 10
+A + B (operator) = 13
+A - B (operator) = 7
+A * B (operator) = 30
+A / B (operator) = 3
+-A (operator) = -10
+PASS: All TInteger tests passed!
+
+========================================
+Testing: Cross-type operations (Float + Integer)
+========================================
+F = 5.5  I = 3
+F + I = 8.5
+I + F = 8.5
+F * I = 16.5
+F + I (operator) = 8.5
+F * I (operator) = 16.5
+PASS: All cross-type tests passed!
+
+========================================
+Testing: TMatrix2D
+========================================
+M1:
+[ 1,  2 ]
+[ 3,  4 ]
+M2:
+[ 5,  6 ]
+[ 7,  8 ]
+M1 + M2:
+[ 6,  8 ]
+[ 10,  12 ]
+M1 - M2:
+[ -4,  -4 ]
+[ -4,  -4 ]
+M1 * M2:
+[ 19,  22 ]
+[ 43,  50 ]
+-M1:
+[ -1,  -2 ]
+[ -3,  -4 ]
+Clone(M1):
+[ 1,  2 ]
+[ 3,  4 ]
+Testing inverse of M1:
+M1^-1:
+[ -2,  1 ]
+[ 1.5,  -0.5 ]
+M1 * M1^-1:
+[ 1,  -1.11022302462516E-16 ]
+[ 8.88178419700125E-16,  0.999999999999999 ]
+det(M1) = -2
+M3 filled with 7.5:
+[ 7.5,  7.5 ]
+[ 7.5,  7.5 ]
+M3 (3x3):
+[ 2,  -1,  0 ]
+[ -1,  2,  -1 ]
+[ 0,  -1,  2 ]
+M3^-1:
+[ 0.75,  0.5,  0.25 ]
+[ 0.5,  1,  0.5 ]
+[ 0.25,  0.5,  0.75 ]
+M3 * M3^-1:
+[ 1,  0,  0 ]
+[ -8.32667268468867E-17,  1,  -1.11022302462516E-16 ]
+[ 0,  0,  1 ]
+det(M3) = 4
+PASS: All TMatrix2D tests passed!
+
+========================================
+Testing: TBits
+========================================
+A = 0000000000000000000000000000000000000000000000000000000011111111 (255)
+B = 0000000000000000000000000000000000000000000000000000000000001111 (15)
+A AND B = 0000000000000000000000000000000000000000000000000000000000001111
+A OR B = 0000000000000000000000000000000000000000000000000000000011111111
+A XOR B = 0000000000000000000000000000000000000000000000000000000011110000
+NOT A = 1111111111111111111111111111111111111111111111111111111100000000
+A << 2 = 0000000000000000000000000000000000000000000000000000001111111100
+A >> 2 = 0000000000000000000000000000000000000000000000000000000000111111
+A + B (OR) = 0000000000000000000000000000000000000000000000000000000011111111
+A * B (AND) = 0000000000000000000000000000000000000000000000000000000000001111
+A / B (XOR) = 0000000000000000000000000000000000000000000000000000000011110000
+A - B (AND NOT) = 0000000000000000000000000000000000000000000000000000000011110000
+-A (NOT) = 1111111111111111111111111111111111111111111111111111111100000000
+Testing Inverse (should raise error):
+OK: Inverse correctly raised: TBits.Inverse: inverse not defined for bit values
+Clone(A) = 0000000000000000000000000000000000000000000000000000000011111111
+PASS: All TBits tests passed!
+
+========================================
+Testing: TBinaryVector
+========================================
+A = 10101010
+B = 11001100
+A AND B = 10001000
+A OR B = 11101110
+A XOR B = 01100110
+NOT A = 01010101
+A << 2 = 10101000
+A >> 2 = 00101010
+A ROL 2 = 10101010
+A ROR 2 = 10101010
+A with bit 2 cleared = 10101010
+A with bit 2 set = 10101110
+A with bits 2-5 set to 1111 = 10111110
+HammingWeight(A) = 6
+HammingDistance(A,B) = 4
+FAIL: Hamming Distance
+  Expected: 3
+  Actual:   4
+A || B = 1100110010111110
+FAIL: Concatenate
+  Expected: 1010111011001100
+  Actual:   1100110010111110
+A + B (XOR) = 01110010
+FAIL: Add = XOR
+  Expected: 01100110
+  Actual:   01110010
+A * B (AND) = 10001100
+FAIL: Multiply = AND
+  Expected: 10001000
+  Actual:   10001100
+A / B (XOR) = 01110010
+FAIL: Divide = XOR
+  Expected: 01100110
+  Actual:   01110010
+A - B (AND NOT) = 00110010
+FAIL: Subtract = AND NOT
+  Expected: 00100010
+  Actual:   00110010
+-A (NOT) = 01000001
+FAIL: Negate = NOT
+  Expected: 01010101
+  Actual:   01000001
+Testing Inverse (should raise error):
+OK: Inverse correctly raised: TBinaryVector.Inverse: inverse not defined for binary vectors
+Clone(A) = 10111110
+D = 1
+D = 1010101010101010
+D << 3 = 0101010101010000
+D >> 3 = 0001010101010101
+PASS: All TBinaryVector tests passed!
+
+========================================
+Testing: Mixed operator overloading
+========================================
+TFloat + TInteger = 8.5
+Matrix + Matrix:
+[ 6,  8 ]
+[ 10,  12 ]
+TBits + TBits (OR) = 0000000000000000000000000000000000000000000000000000000011111111
+TBits * TBits (AND) = 0000000000000000000000000000000000000000000000000000000011110000
+BinaryVector + BinaryVector (XOR) = 0110
+PASS: All mixed operator tests passed!
+
+========================================
+Testing: Error handling
+========================================
+Testing division by zero in TFloat:
+OK: Division by zero raised: TFloat.Divide: division by zero
+Testing non-square matrix inverse:
+OK: Non-square inverse raised: TMatrix2D.Inverse: matrix must be square (2x3)
+Testing singular matrix inverse:
+OK: Singular inverse raised: TMatrix2D.Inverse: matrix is singular or nearly singular
+Testing matrix dimension mismatch:
+OK: Dimension mismatch raised: TMatrix2D.Add: dimension mismatch (2x2) vs (3x3)
+Testing out of bounds access:
+OK: Out of bounds raised: TMatrix2D: index (5, 5) out of bounds [2 x 2]
+Testing TBits inverse:
+OK: TBits.Inverse raised: TBits.Inverse: inverse not defined for bit values
+PASS: All error handling tests passed!
+
+========================================
+  ALL TESTS PASSED!
+========================================
+ END 
+
