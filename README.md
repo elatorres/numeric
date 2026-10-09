@@ -2,7 +2,9 @@
 
 A numerical computing library for Free Pascal, built around a single polymorphic hierarchy of numeric types. Real, integer, complex, rational, quaternion, matrix, bit-vector, and quantum-state types all share the same virtual interface — so they interoperate through operators, promote cleanly across types, and can be composed into larger structures (vectors, matrices, expressions) without special-casing.
 
-The library is the numeric foundation for a computer-algebra system (CAS) under development.
+The library is the numeric foundation for a computer-algebra system (CAS) under development. It is used in some of my research  activities on several subjects.
+
+This is a work in process, and will have continued development on my spare time.
 
 ---
 
@@ -505,7 +507,7 @@ Natural extensions for the CAS foundation:
 
 ## License
 
-Add your preferred license here. The design and implementation are original work; no third-party code is incorporated.
+MIT License: That is anyone use, copy, modify, merge, publish, distribute, and even sell this code, provided you keep the original copyright notice and permission text in all copies or substantial portions of this code.
 
 ---
 
@@ -514,3 +516,7 @@ Add your preferred license here. The design and implementation are original work
 The library was developed incrementally, with each type added on top of the previous ones and tested against real examples from complex arithmetic, exact rational computation, quantum circuit simulation, and linear algebra. The uniform `TNumeric` interface is the reason all of them interoperate seamlessly.
 
 If you extend the library — a new type, a new solver, a new gate — the same pattern applies: derive from `TNumeric`, implement the interface, and everything else works with it automatically.
+
+It was developed with substantial help from DeepSeek AI assistance (Amigo Imaginario).
+
+Enrique Latorres
