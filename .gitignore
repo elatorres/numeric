@@ -1,26 +1,29 @@
 **/*.o
-   **/*.ppu
-   **/*.exe
-   **/*.bak
-   **/*.diff
-   **/*.patch
-   **/units/
-   **/lib/
-   **/*;[1-9]
-   **/*.~*
-   **/*.*~
-   **/*.fpcunit.ini
-   **/*.lps
-   **/*.compiled
-   /docs/chm/**/*.chm
-   /docs/chm/**/*.xct
-   /docs/chm/**/*.kwd
-   /docs/chm/**/*.txt
-   /libeay32.dll
-   /ssleay32.dll
-   /lazarus.cfg
-   ide/revision.inc
-   
-   !**/patches/*.patch
-   !**/patches/*.diff
+**/*.ppu
+**/*.exe
+**/*.bak
+**/*.diff
+**/*.patch
+**/*.compiled
+**/units/
+**/lib/
+**/*;[1-9]
+**/*.~*
+**/*.*~
+**/*.fpcunit.ini
+**/*.lps
+**/*.compiled
+/docs/chm/**/*.chm
+/docs/chm/**/*.xct
+/docs/chm/**/*.kwd
+/docs/chm/**/*.txt
+/libeay32.dll
+/ssleay32.dll
+/lazarus.cfg
+ide/revision.inc
+
+**/respaldos/
+
+!**/patches/*.patch
+!**/patches/*.diff
 

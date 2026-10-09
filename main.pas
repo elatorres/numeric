@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls, Math,
   TELNumeric, TELFloat, TELInteger, TELComplex, TELMatrix2D, TELBits, TELBinaryVector,
-  TELRational, TELLinearSystem, TELLinearSolution, TELQuantum, TELEigen;
+  TELRational, TELLinearSystem, TELLinearSolution, TELQuantum, TELEigen, TELQuaternion;
 
 type
 
@@ -45,6 +45,7 @@ type
     procedure TestQuantum;
     procedure TestBellStateQuantum;
     procedure TestTELEigenValues;
+    procedure TestTELQuaternion;
   public
   end;
 
@@ -2395,6 +2396,75 @@ begin
     M.Free; Eigs.Free; Vecs.Free;
 end;
 
+// ============================================================================
+//   Test TELQuaternion
+// ============================================================================
+procedure TForm1.TestTELQuaternion;
+
+var
+  Q1, Q2, Q3: TQuaternion;
+  F: TFloat;
+  Z: TComplex;
+begin
+  Q1 := TQuaternion.Create(1, 2, 3, 4);
+  Q2 := TQuaternion.Create(5, 6, 7, 8);
+
+  Memo1.Lines.Add('Q1 = ' + Q1.ToString);
+  Memo1.Lines.Add('Q2 = '+ Q2.ToString);
+
+  Q3 := Q1 * Q2;                     { Hamilton product }
+  Memo1.Lines.Add('Q1 * Q2 = '+ Q3.ToString);
+
+  Memo1.Lines.Add('Conjugate of Q1 = '+ Q1.Conjugate.ToString);
+  Memo1.Lines.Add('Norm of Q1 = '+ Q1.Norm.ToString);
+  Memo1.Lines.Add('Unit of Q1 = '+ Q1.Unity.ToString);
+  Memo1.Lines.Add('Inverse of Q1 = '+ Q1.Inverse.ToString);
+
+  { Mixed with real }
+  Q3 := Q1 * 2.0;
+  Memo1.Lines.Add('Q1 * 2 = '+ Q3.ToString);
+
+  { Mixed with TFloat }
+  F := TFloat.Create(3.0);
+  Q3 := Q1 + F;
+  Memo1.Lines.Add('Q1 + 3 = '+ Q3.ToString);
+  F.Free;
+
+  { Mixed with complex }
+  Z := TComplex.Create(1, 1);
+  Q3 := Q1 * Z;
+  Memo1.Lines.Add('Q1 * (1+i) = '+ Q3.ToString);
+  Z.Free;
+
+  { Exponential, log, power }
+  Memo1.Lines.Add('exp(Q1) = '+ Q1.Exp.ToString);
+  Memo1.Lines.Add('ln(Q1) = '+ Q1.Ln.ToString);
+  Memo1.Lines.Add('Q1^2 = '+ Q1.Power(2).ToString);
+
+  { Geodesic distance between two unit quaternions }
+  Q1 := TQuaternion.Create(1, 0, 0, 0);
+  Q2 := TQuaternion.Create(0, 1, 0, 0);
+  Memo1.Lines.Add('d(q1, q2) = ' + Q1.GeodesicDistance(Q2).ToString + ' rad'); // :0:6
+  { pi/2 }
+
+  Q1 := TQuaternion.Create(1, 2, 3, 4);
+  Q2 := Q1.Unity;
+  Memo1.Lines.Add('Q1 = ' + Q1.ToString);
+  Memo1.Lines.Add('Q1 unity = ' + Q2.ToString);
+  Memo1.Lines.Add('Norm of unity = ' + Q2.Norm.ToString);   { should be 1.0 }
+  Memo1.Lines.Add('Q1 * 2 = ' + (Q1 * 2.0).ToString);
+  Memo1.Lines.Add('exp(Q1) = ' + Q1.Exp.ToString);
+  Memo1.Lines.Add('ln(Q1) = ' + Q1.Ln.ToString);
+  Memo1.Lines.Add('Q1^2 = ' + Q1.Power(2).ToString);
+  Memo1.Lines.Add('dot(Q1, Q2) = ' + Q1.Dot(Q2).ToString);
+
+  Q1.Free; Q2.Free; Q3.Free;
+end;
+
+// ============================================================================
+//   Test TELQuaternion
+// ============================================================================
+
 
 // ============================================================================
 //  Main test runner
@@ -2428,6 +2498,7 @@ begin
     TestQuantum;
     TestBellStateQuantum;
     TestTELEigenValues;
+    TestTELQuaternion;
 
     Memo1.Lines.Add('');
     Memo1.Lines.Add('========================================');

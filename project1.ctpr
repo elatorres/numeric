@@ -36,7 +36,7 @@
       </Unit>
       <Unit>
         <Filename Value="main.pas"/>
-        <FRMtype Value="0"/>
+        <FRMtype Value="200"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
@@ -44,81 +44,73 @@
       </Unit>
       <Unit>
         <Filename Value="tnumeric.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TNumeric"/>
       </Unit>
       <Unit>
         <Filename Value="tfloat.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELFloat"/>
       </Unit>
       <Unit>
         <Filename Value="tinteger.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELInteger"/>
       </Unit>
       <Unit>
         <Filename Value="tmatrix2d.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELMatrix2D"/>
       </Unit>
       <Unit>
         <Filename Value="tbits.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELBits"/>
       </Unit>
       <Unit>
         <Filename Value="tbinaryvector.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELBinaryVector"/>
       </Unit>
       <Unit>
         <Filename Value="telcomplex.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELComplex"/>
       </Unit>
       <Unit>
         <Filename Value="telboolean.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELBoolean"/>
       </Unit>
       <Unit>
         <Filename Value="telrational.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELRational"/>
       </Unit>
       <Unit>
         <Filename Value="tellinearsystem.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELLinearSystem"/>
       </Unit>
       <Unit>
         <Filename Value="tellinearsolution.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELLinearSolution"/>
       </Unit>
       <Unit>
         <Filename Value="teldirac.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELDirac"/>
       </Unit>
       <Unit>
         <Filename Value="teleigen.pas"/>
-        <FRMtype Value="0"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TELEigen"/>
+      </Unit>
+      <Unit>
+        <Filename Value="telquaternion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="TELQuaternion"/>
       </Unit>
     </Units>
   </ProjectOptions>
